@@ -1,0 +1,17 @@
+google-play-scraper
+app-store-scraper
+requests
+praw
+streamlit
+plotly
+pandas
+pyyaml
+beautifulsoup4
+python-dotenv
+groq==0.13.0
+fpdf2==2.8.1
+markdown==3.7
+google-api-python-client==2.130.0
+emoji
+lxml
+p y d a n t i c

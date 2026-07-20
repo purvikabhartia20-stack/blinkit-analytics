@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+blinkit_data.db
+venv/
+.venv/
