@@ -71,6 +71,8 @@ def main():
 <div class="flow-box"><b>🤖 Google Play Store</b><br><small>Reviews</small></div>
 <div class="flow-box"><b>🌐 Reddit API</b><br><small>Discussions</small></div>
 <div class="flow-box"><b>▶️ YouTube API</b><br><small>Comments</small></div>
+<div class="flow-box"><b>🗣️ MouthShut</b><br><small>Web Scraping</small></div>
+<div class="flow-box"><b>⚖️ Consumer Complaints</b><br><small>Web Scraping</small></div>
 </div>
 <div class="flow-arrow">⬇</div>
 <div class="flow-step">

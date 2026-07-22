@@ -69,8 +69,6 @@ def main():
         
     if is_fallback:
         st.markdown('<div class="fallback-flag">⚠️ FALLBACK DATA ACTIVE. These insights are generated from a cached sample, not live scraped data.</div>', unsafe_allow_html=True)
-
-    st.markdown("### Phase 4 Synthesized Report")
     
     # Get available reports
     historical_reports = sorted(glob.glob('reports/insight_report_*.md'), reverse=True)

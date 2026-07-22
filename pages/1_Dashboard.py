@@ -47,15 +47,13 @@ def main():
         
     st.markdown("### High-Level Metrics")
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     col1.metric("Total Reviews Tagged", len(df))
     
     relevant_df = df[df['theme'] != 'None']
-    col2.metric("Relevant Signal (Q1-Q8)", len(relevant_df))
-    col3.metric("Noise (None)", len(df[df['theme'] == 'None']))
     
     # Theme Distribution
-    st.markdown("### Theme Distribution (Excluding 'none')")
+    st.markdown("### Theme Distribution")
     if not relevant_df.empty:
         theme_counts = relevant_df['theme'].value_counts().reset_index()
         theme_counts.columns = ['Theme', 'Count']
@@ -65,6 +63,11 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.info("No relevant themes found yet.")
+
+    st.markdown("### Raw Data Pipeline Sources")
+    source_counts = df['source'].value_counts().reset_index()
+    source_counts.columns = ['Source Platform', 'Reviews Tagged']
+    st.dataframe(source_counts, hide_index=True, use_container_width=True)
 
     colA, colB = st.columns(2)
     with colA:

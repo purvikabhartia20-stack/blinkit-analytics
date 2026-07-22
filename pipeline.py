@@ -2,8 +2,8 @@ import os
 import sys
 import time
 from run_phase2 import main as run_phase2_main
-from auto_tag import main as auto_tag_main
-from generate_insights import main as generate_insights_main
+from auto_tag import batch_tag_reviews
+from generate_insights import generate_insights
 
 LOCK_FILE = ".pipeline_lock"
 
@@ -23,7 +23,7 @@ def release_lock():
 
 def main():
     print("=" * 50)
-    print("🚀 Starting End-to-End Insights Pipeline (Phase 5)")
+    print("Starting End-to-End Insights Pipeline (Phase 5)")
     print("=" * 50)
     
     check_lock()
@@ -34,15 +34,15 @@ def main():
         run_phase2_main()
         
         print("\n--- [2/3] Phase 3: AI Tagging ---")
-        auto_tag_main()
+        batch_tag_reviews()
         
         print("\n--- [3/3] Phase 4: Synthesis & Insights ---")
-        generate_insights_main()
+        generate_insights()
         
-        print("\n✅ Pipeline completed successfully!")
+        print("\nPipeline completed successfully!")
         
     except Exception as e:
-        print(f"\n❌ Pipeline failed due to an error: {e}")
+        print(f"\nPipeline failed due to an error: {e}")
         print("The lock file will be released safely so you can resume later.")
         
     finally:

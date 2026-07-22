@@ -1,0 +1,141 @@
+[
+  {
+    "theme": "q1_repeat_buying",
+    "question": "Why do users repeatedly buy from the same categories?",
+    "summary_markdown": "### Executive Summary: Q1 Repeat Buying\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q1 Repeat Buying.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 4,
+      "sentiment_distribution": {
+        "neutral": 2,
+        "negative": 2
+      }
+    }
+  },
+  {
+    "theme": "q2_exploration_barriers",
+    "question": "What prevents users from exploring new categories?",
+    "summary_markdown": "### Executive Summary: Barriers to Exploring New Categories on Blinkit\nBased on the aggregated data from Blinkit user reviews, the key factors preventing users from exploring new categories are related to accessibility and technical issues. \n\n* The sentiment around exploring new categories is entirely negative, indicating significant frustration among users.\n* The top pain points mentioned are:\n  + Area not available, highlighting geographical limitations.\n  + Payment and OTP issues, suggesting technical hurdles.\n* Users are specifically requesting expansion into new areas (e.g., Virudhunagar) and expressing broader difficulties with logistics in India, implying that geographical restrictions and operational challenges are primary barriers to exploration.",
+    "backing_data": {
+      "count": 2,
+      "sentiment_distribution": {
+        "negative": 2
+      },
+      "top_categories": {
+        "none-unclear": 1,
+        "pharmacy": 1
+      },
+      "top_pain_points": {
+        "Area not available": 1,
+        "Payment and OTP issues": 1
+      }
+    }
+  },
+  {
+    "theme": "q3_discovery",
+    "question": "How do users discover products today?",
+    "summary_markdown": "### Executive Summary: Q3 Discovery\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q3 Discovery.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 5,
+      "sentiment_distribution": {
+        "positive": 4,
+        "neutral": 1
+      },
+      "top_categories": {
+        "other": 3,
+        "electronics": 1,
+        "grocery": 1
+      },
+      "top_pain_points": {
+        "No nearby printing service": 1
+      }
+    }
+  },
+  {
+    "theme": "q4_habits",
+    "question": "What role do habits play in shopping behavior?",
+    "summary_markdown": "### Executive Summary: Q4 Habits\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q4 Habits.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 4,
+      "sentiment_distribution": {
+        "neutral": 2,
+        "negative": 2
+      }
+    }
+  },
+  {
+    "theme": "q5_info_needed",
+    "question": "What information do users need before trying a new category?",
+    "summary_markdown": "### Executive Summary: Q5 Info Needed\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q5 Info Needed.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 3,
+      "sentiment_distribution": {
+        "neutral": 2,
+        "negative": 1
+      },
+      "top_categories": {
+        "none-unclear": 2,
+        "other": 1
+      },
+      "top_pain_points": {
+        "Lack of authentic products": 1,
+        "No discount": 1
+      }
+    }
+  },
+  {
+    "theme": "q6_frustrations",
+    "question": "What frustrations emerge repeatedly?",
+    "summary_markdown": "### Executive Summary: Q6 Frustrations\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q6 Frustrations.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 33,
+      "sentiment_distribution": {
+        "negative": 33
+      },
+      "top_categories": {
+        "none-unclear": 23,
+        "grocery": 3,
+        "other": 3
+      },
+      "top_pain_points": {
+        "Missing items": 3,
+        "Bad customer care": 2,
+        "Unattended delivery": 1
+      }
+    }
+  },
+  {
+    "theme": "q7_segments",
+    "question": "Which user segments are more likely to experiment?",
+    "summary_markdown": "### Executive Summary: Q7 Segments\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q7 Segments.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 4,
+      "sentiment_distribution": {
+        "neutral": 2,
+        "negative": 2
+      }
+    }
+  },
+  {
+    "theme": "q8_unmet_needs",
+    "question": "What unmet needs emerge consistently across discussions?",
+    "summary_markdown": "### Executive Summary: Q8 Unmet Needs\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q8 Unmet Needs.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "backing_data": {
+      "count": 9,
+      "sentiment_distribution": {
+        "neutral": 4,
+        "negative": 3,
+        "positive": 2
+      },
+      "top_categories": {
+        "other": 6,
+        "none-unclear": 1,
+        "grocery": 1
+      },
+      "top_pain_points": {
+        "Unreliable emergency services": 1,
+        "Toxic vegetables": 1,
+        "No nearby stores": 1
+      }
+    }
+  }
+]

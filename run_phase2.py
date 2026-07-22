@@ -39,10 +39,10 @@ def store_reviews(reviews):
 def main():
     print("Starting Phase 2: Scrapers & Database Population")
     
-    playstore_data = fetch_playstore_reviews(target_count=50) # Target lowered for fast test execution, but adjustable
+    playstore_data = fetch_playstore_reviews(target_count=2000)
     appstore_data = fetch_appstore_reviews()
     reddit_data = fetch_reddit_reviews()
-    youtube_data = fetch_youtube_comments()
+    youtube_data = fetch_youtube_comments(target_count=1000)
     cc_data = fetch_cc_reviews()
     mouthshut_data = fetch_mouthshut_reviews()
     

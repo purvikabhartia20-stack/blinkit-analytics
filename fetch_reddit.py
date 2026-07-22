@@ -5,7 +5,7 @@ import os
 
 def fetch_reddit_reviews():
     print("Fetching Reddit discussions via XML RSS...")
-    subs = ['india', 'bangalore', 'mumbai', 'delhi']
+    subs = ['india', 'bangalore', 'mumbai', 'delhi', 'gurgaon', 'noida', 'pune', 'hyderabad', 'chennai', 'kolkata', 'ahmedabad', 'chandigarh', 'lucknow', 'jaipur', 'surat', 'indore']
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
     
     formatted = []

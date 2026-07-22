@@ -25,7 +25,7 @@ For each review, you must output a JSON object exactly matching the requested sc
 2. `sentiment` (string): "positive", "negative", or "neutral".
 
 3. `category_mentioned` (string): What category of product are they talking about? Choose the best fit:
-   - "grocery", "pharmacy", "electronics", "beauty", "pet", "baby", "other", "none-unclear".
+   - "grocery", "pharmacy", "electronics", "beauty", "pet", "baby", "snacks", "apparel", "printing service", "blinkit ambulance", "other", "none-unclear".
 
 4. `behavior_signal` (string): What buying behavior is shown?
    - "repeat-only" (Buying the usual stuff)
