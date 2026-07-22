@@ -47,12 +47,32 @@ def main():
         
     st.markdown("### High-Level Metrics")
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     col1.metric("Total Reviews Tagged", len(df))
-    
-    relevant_df = df[df['theme'] != 'None']
+
+    # Show how many reviews are still waiting to be tagged
+    conn2 = sqlite3.connect('blinkit_data.db')
+    c2 = conn2.cursor()
+    c2.execute("SELECT COUNT(*) FROM reviews WHERE id NOT IN (SELECT review_id FROM tags)")
+    untagged_count = c2.fetchone()[0]
+    c2.execute("SELECT COUNT(*) FROM reviews")
+    total_reviews = c2.fetchone()[0]
+    conn2.close()
+
+    col2.metric("Total Reviews in DB", total_reviews)
+    col3.metric("Untagged (pending)", untagged_count,
+                delta=f"-{untagged_count}" if untagged_count > 0 else "✓ All tagged",
+                delta_color="inverse")
+
+    if untagged_count > 0:
+        st.info(
+            f"⚙️ **{untagged_count} reviews are untagged.** "
+            f"Run `python auto_tag.py` to continue tagging "
+            f"(processes {500} per run to stay within the free Groq quota)."
+        )
     
     # Theme Distribution
+    relevant_df = df[df['theme'] != 'None']
     st.markdown("### Theme Distribution")
     if not relevant_df.empty:
         theme_counts = relevant_df['theme'].value_counts().reset_index()

@@ -9,12 +9,27 @@ from datetime import datetime
 from groq import Groq
 from dotenv import load_dotenv
 
-# For insight synthesis we prefer the smartest model but fall back gracefully.
-INSIGHT_MODELS = [
-    "llama-3.3-70b-versatile",  # Best quality for executive summaries
-    "llama-3.1-8b-instant",      # Fast fallback
-    "llama3-8b-8192",             # Final fallback
-]
+
+def load_config() -> dict:
+    with open('config.yaml', 'r') as f:
+        return yaml.safe_load(f)
+
+
+def get_insight_models(config: dict) -> list[str]:
+    """Build insight model chain: primary + fallbacks from config."""
+    groq_cfg = config.get('groq', {})
+    primary = groq_cfg.get('insights_model', 'llama-3.3-70b-versatile')
+    fallbacks = groq_cfg.get('insights_fallback_models', [
+        'openai/gpt-oss-20b',
+        'llama-3.1-8b-instant',
+    ])
+    seen = set()
+    chain = []
+    for m in [primary] + fallbacks:
+        if m not in seen:
+            seen.add(m)
+            chain.append(m)
+    return chain
 
 RESEARCH_QUESTIONS = {
     "q1_repeat_buying": "Why do users repeatedly buy from the same categories?",
@@ -26,11 +41,6 @@ RESEARCH_QUESTIONS = {
     "q7_segments": "Which user segments are more likely to experiment?",
     "q8_unmet_needs": "What unmet needs emerge consistently across discussions?"
 }
-
-def get_db_path():
-    with open('config.yaml', 'r') as f:
-        config = yaml.safe_load(f)
-        return config.get('database', {}).get('db_path', 'blinkit_data.db')
 
 def setup_client():
     load_dotenv()
@@ -51,9 +61,9 @@ def _parse_wait_seconds(error_message: str) -> int:
     return wait if wait > 0 else 60
 
 
-def call_groq_with_fallback(client, prompt, max_tokens=800):
-    """Try each model in INSIGHT_MODELS in order, falling back on rate limits."""
-    for model in INSIGHT_MODELS:
+def call_groq_with_fallback(client, prompt, model_chain: list[str], max_tokens=800):
+    """Try each model in model_chain in order, falling back on rate limits."""
+    for model in model_chain:
         try:
             response = client.chat.completions.create(
                 model=model,
@@ -68,14 +78,16 @@ def call_groq_with_fallback(client, prompt, max_tokens=800):
                 print(f"  Rate limit on {model}. Trying next model in chain...")
                 continue  # try next model
             else:
-                raise  # unexpected error — re-raise
-    # All models exhausted
+                raise  # unexpected — re-raise
     raise RuntimeError("All Groq models are currently rate-limited for insight synthesis.")
 
 
 def generate_insights():
     print("Starting Phase 4: Insight Generation")
-    db_path = get_db_path()
+    config = load_config()
+    db_path = config.get('database', {}).get('db_path', 'blinkit_data.db')
+    model_chain = get_insight_models(config)
+    print(f"Insight model chain: {' -> '.join(model_chain)}")
     conn = sqlite3.connect(db_path)
     
     query = """
@@ -148,7 +160,7 @@ Use Markdown formatting. Use bullet points for key takeaways. Do not hallucinate
 """
             try:
                 # Use model fallback chain for resilience against rate limits
-                summary, used_model = call_groq_with_fallback(client, prompt, max_tokens=800)
+                summary, used_model = call_groq_with_fallback(client, prompt, model_chain, max_tokens=800)
                 print(f"  - Successfully generated insight for {theme} (model: {used_model})")
             except Exception as e:
                 print(f"  - API Error for {theme}: {e}")

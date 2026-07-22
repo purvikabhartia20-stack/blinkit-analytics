@@ -1,2 +1,30 @@
 database:
   db_path: "blinkit_data.db"
+
+groq:
+  # Tagging: use the cheapest model with the highest free-tier TPD.
+  # llama-3.1-8b-instant: ~500K TPD on free tier (vs 100K for 70B)
+  tagging_model: "llama-3.1-8b-instant"
+
+  # Fallback chain for tagging (tried in order when rate limits hit)
+  tagging_fallback_models:
+    - "llama3-8b-8192"
+    - "openai/gpt-oss-20b"      # 200K TPD on Groq free tier
+    - "llama-3.3-70b-versatile" # last resort; 100K TPD
+
+  # Insight synthesis: 8 calls total — quality matters more than token cost
+  insights_model: "llama-3.3-70b-versatile"
+
+  # Fallback chain for insights
+  insights_fallback_models:
+    - "openai/gpt-oss-20b"     # 200K TPD — good quality fallback
+    - "llama-3.1-8b-instant"   # final fallback
+
+  # Max reviews to tag per run — protects your daily token budget.
+  # At ~400 tokens/review on 8B, 500 reviews ≈ 200K tokens (safe for one day).
+  # Re-run until untagged = 0.
+  tagging_limit_per_run: 500
+
+  # Seconds to sleep between tagging calls — prevents RPM exhaustion
+  # 30 RPM limit = 1 call/2s minimum. 2.1s gives a small safety buffer.
+  tagging_delay_seconds: 2.1

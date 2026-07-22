@@ -2,5 +2,8 @@ __pycache__/
 *.pyc
 .env
 blinkit_data.db
+blinkit_data.db-journal
 venv/
 .venv/
+.pipeline_lock
+reports/insight_report_*.md
