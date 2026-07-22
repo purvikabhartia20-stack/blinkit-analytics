@@ -2,19 +2,15 @@
   {
     "theme": "q1_repeat_buying",
     "question": "Why do users repeatedly buy from the same categories?",
-    "summary_markdown": "### Executive Summary: Q1 Repeat Buying\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q1 Repeat Buying.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "*Insufficient data for this theme in the current sample.*",
     "backing_data": {
-      "count": 4,
-      "sentiment_distribution": {
-        "neutral": 2,
-        "negative": 2
-      }
+      "count": 0
     }
   },
   {
     "theme": "q2_exploration_barriers",
     "question": "What prevents users from exploring new categories?",
-    "summary_markdown": "### Executive Summary: Barriers to Exploring New Categories on Blinkit\nBased on the aggregated data from Blinkit user reviews, the key factors preventing users from exploring new categories are related to accessibility and technical issues. \n\n* The sentiment around exploring new categories is entirely negative, indicating significant frustration among users.\n* The top pain points mentioned are:\n  + Area not available, highlighting geographical limitations.\n  + Payment and OTP issues, suggesting technical hurdles.\n* Users are specifically requesting expansion into new areas (e.g., Virudhunagar) and expressing broader difficulties with logistics in India, implying that geographical restrictions and operational challenges are primary barriers to exploration.",
+    "summary_markdown": "### Executive Summary: Barriers to Exploring New Categories on Blinkit\nBased on the analysis of Blinkit user reviews, the primary obstacles preventing users from exploring new categories are related to logistical and technical issues. \n\n* The negative sentiment expressed by users highlights difficulties in accessing the platform's services, particularly in certain areas.\n* Key pain points include:\n  + Area not available, indicating that users are hindered by geographical limitations.\n  + Payment and OTP issues, suggesting that technical problems also deter exploration.\n* The top categories discussed, albeit with low mention counts, point to a desire for expanded services, such as pharmacy, and better coverage, as evidenced by requests for adding specific locations like Virudhunagar.\n\nOverall, the data suggests that addressing accessibility, expanding service areas, and resolving technical issues could encourage users to explore new categories on Blinkit.",
     "backing_data": {
       "count": 2,
       "sentiment_distribution": {
@@ -33,7 +29,7 @@
   {
     "theme": "q3_discovery",
     "question": "How do users discover products today?",
-    "summary_markdown": "### Executive Summary: Q3 Discovery\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q3 Discovery.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "### Executive Summary: How Users Discover Products Today\nBased on the aggregated data from Blinkit user reviews, the following insights emerge on how users discover products today:\n\n* **Discovery channels**: Users mention discovering products through apps like Blinkit, indicating that mobile apps are a key channel for product discovery.\n* **Word of mouth and recommendations**: Positive sentiment and recommendations from other users (e.g., \"10/10 recommended\") suggest that word of mouth plays a role in product discovery.\n* **In-app discoveries**: Users express surprise at finding products or services they didn't know were available on Blinkit (e.g., document printing), highlighting the importance of in-app discovery.\n* **Variety of products**: Top categories discussed include \"other\", \"electronics\", \"grocery\", and specific products like \"DIET COKE IN GLASS VERSION\", indicating that users discover a wide range of products through Blinkit.\n\nOverall, the data suggests that users discover products today through a combination of mobile apps, word of mouth, and in-app discoveries, with a focus on convenience and variety of products.",
     "backing_data": {
       "count": 5,
       "sentiment_distribution": {
@@ -53,19 +49,15 @@
   {
     "theme": "q4_habits",
     "question": "What role do habits play in shopping behavior?",
-    "summary_markdown": "### Executive Summary: Q4 Habits\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q4 Habits.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "*Insufficient data for this theme in the current sample.*",
     "backing_data": {
-      "count": 4,
-      "sentiment_distribution": {
-        "neutral": 2,
-        "negative": 2
-      }
+      "count": 0
     }
   },
   {
     "theme": "q5_info_needed",
     "question": "What information do users need before trying a new category?",
-    "summary_markdown": "### Executive Summary: Q5 Info Needed\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q5 Info Needed.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "### Executive Summary: Information Needed Before Trying a New Category\nBased on the aggregated data from Blinkit user reviews, users need the following information before trying a new category:\n* **Authenticity**: Users want to ensure that the products offered are authentic, particularly for specific cuisine-based categories like Japanese ramen.\n* **Incentives**: Users expect discounts or offers, such as coupons, to encourage them to try new categories.\n* **Additional benefits**: Some users also look for extra perks, like free gifts, when ordering multiple items from a new category.\n\nThe limited sentiment data suggests that users may be neutral or negative about trying new categories without this information. Overall, users prioritize authenticity and value when considering a new category.",
     "backing_data": {
       "count": 3,
       "sentiment_distribution": {
@@ -85,50 +77,48 @@
   {
     "theme": "q6_frustrations",
     "question": "What frustrations emerge repeatedly?",
-    "summary_markdown": "### Executive Summary: Q6 Frustrations\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q6 Frustrations.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "### Executive Summary\nThe analysis of Blinkit user reviews reveals a predominantly negative sentiment, with 40 out of 43 mentions expressing frustration. The top categories discussed are unclear or unspecified, followed by grocery and other categories.\n\n### Key Takeaways\n* The primary pain points include:\n  + Missing items\n  + Late delivery\n  + Bad customer care\n* Common complaints involve:\n  + Poor customer service experiences\n  + Issues with delivery, including tardiness and rudeness\n  + Problems with product quality, including expired or damaged items\n  + Excessive charges and pricing issues\n  + Difficulty with returns and refunds\n* The majority of users express dissatisfaction with their experiences, citing a range of issues that contribute to a negative perception of the service.",
     "backing_data": {
-      "count": 33,
+      "count": 43,
       "sentiment_distribution": {
-        "negative": 33
+        "negative": 40,
+        "neutral": 2,
+        "positive": 1
       },
       "top_categories": {
-        "none-unclear": 23,
-        "grocery": 3,
+        "none-unclear": 32,
+        "grocery": 4,
         "other": 3
       },
       "top_pain_points": {
         "Missing items": 3,
-        "Bad customer care": 2,
-        "Unattended delivery": 1
+        "Late delivery": 3,
+        "Bad customer care": 2
       }
     }
   },
   {
     "theme": "q7_segments",
     "question": "Which user segments are more likely to experiment?",
-    "summary_markdown": "### Executive Summary: Q7 Segments\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q7 Segments.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "*Insufficient data for this theme in the current sample.*",
     "backing_data": {
-      "count": 4,
-      "sentiment_distribution": {
-        "neutral": 2,
-        "negative": 2
-      }
+      "count": 0
     }
   },
   {
     "theme": "q8_unmet_needs",
     "question": "What unmet needs emerge consistently across discussions?",
-    "summary_markdown": "### Executive Summary: Q8 Unmet Needs\n\n*Note: This insight was generated using offline fallback data because the AI reached its daily rate limit processing 240+ reviews.*\n\n- **Primary Finding**: Users consistently point out friction in Q8 Unmet Needs.\n- **Secondary Finding**: Expanding regional availability and resolving app glitches would directly mitigate these concerns.",
+    "summary_markdown": "### Executive Summary\nThe analysis of Blinkit user reviews reveals unmet needs that emerge consistently across discussions. Despite the convenience offered by Blinkit, users express concerns and desires that are not being fully addressed.\n\n### Key Takeaways\n* Users are concerned about the **safety and quality** of products, including toxic vegetables and unreliable emergency services.\n* There is a need for **greater transparency** in the sourcing and production of food products.\n* Users face **limitation of services** in certain areas, such as remote locations with no nearby stores.\n* The desire for **community interaction** and **local shopping experiences** is evident, with users seeking alternatives to traditional e-commerce platforms.\n* Users are looking for **affordable and convenient solutions** for specific needs, such as e-cycle rental for delivery jobs.\n\n### Overall Sentiment\nThe sentiment distribution is mostly negative (45%) and neutral (36%), indicating that users have mixed experiences and unmet expectations from Blinkit.",
     "backing_data": {
-      "count": 9,
+      "count": 11,
       "sentiment_distribution": {
+        "negative": 5,
         "neutral": 4,
-        "negative": 3,
         "positive": 2
       },
       "top_categories": {
         "other": 6,
-        "none-unclear": 1,
+        "none-unclear": 3,
         "grocery": 1
       },
       "top_pain_points": {
