@@ -43,10 +43,17 @@ RESEARCH_QUESTIONS = {
 }
 
 def setup_client():
-    load_dotenv()
-    api_key = os.environ.get("GROQ_API_KEY")
+    # Try Streamlit secrets first (cloud deployment), then fall back to .env (local)
+    try:
+        import streamlit as st
+        api_key = st.secrets.get("GROQ_API_KEY")
+    except Exception:
+        api_key = None
     if not api_key:
-        raise ValueError("GROQ_API_KEY not found in .env")
+        load_dotenv()
+        api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        raise ValueError("GROQ_API_KEY not found in Streamlit secrets or .env")
     return Groq(api_key=api_key)
 
 def _parse_wait_seconds(error_message: str) -> int:

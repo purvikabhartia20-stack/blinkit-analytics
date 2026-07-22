@@ -8,7 +8,7 @@ groq:
 
   # Fallback chain for tagging (tried in order when rate limits hit)
   tagging_fallback_models:
-    - "llama3-8b-8192"
+    - "llama-3.1-8b-instant"    # same model retry after wait
     - "openai/gpt-oss-20b"      # 200K TPD on Groq free tier
     - "llama-3.3-70b-versatile" # last resort; 100K TPD
 

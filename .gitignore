@@ -7,3 +7,8 @@ venv/
 .venv/
 .pipeline_lock
 reports/insight_report_*.md
+.streamlit/secrets.toml
+check_q1.py
+check_models.py
+check_status.py
+tag_targeted.py
