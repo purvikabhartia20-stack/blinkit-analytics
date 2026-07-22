@@ -21,8 +21,9 @@ groq:
     - "llama-3.1-8b-instant"   # final fallback
 
   # Max reviews to tag per run — protects your daily token budget.
-  # At ~400 tokens/review on 8B, 500 reviews ≈ 200K tokens (safe for one day).
-  # Re-run until untagged = 0.
+  # At ~912 tokens/review on 8B (400 input + 512 output),
+  # 500K TPD free tier = ~548 reviews/day.
+  # Set to 500 to stay safely within budget.
   tagging_limit_per_run: 500
 
   # Seconds to sleep between tagging calls — prevents RPM exhaustion
