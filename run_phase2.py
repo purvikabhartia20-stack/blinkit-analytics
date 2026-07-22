@@ -40,11 +40,11 @@ def main():
     print("Starting Phase 2: Scrapers & Database Population")
     
     playstore_data = fetch_playstore_reviews(target_count=2000)
-    appstore_data = fetch_appstore_reviews()
+    appstore_data = fetch_appstore_reviews(max_pages=10)  # ~500 reviews if all pages available
     reddit_data = fetch_reddit_reviews()
     youtube_data = fetch_youtube_comments(target_count=1000)
-    cc_data = fetch_cc_reviews()
-    mouthshut_data = fetch_mouthshut_reviews()
+    cc_data = fetch_cc_reviews(max_pages=5)
+    mouthshut_data = fetch_mouthshut_reviews(max_pages=5)
     
     all_raw = playstore_data + appstore_data + reddit_data + youtube_data + cc_data + mouthshut_data
     print(f"\nTotal raw pulled: {len(all_raw)}")

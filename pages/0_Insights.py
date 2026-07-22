@@ -120,7 +120,18 @@ def main():
     for title, content in display_rows:
         if title != "Historical Entry":
             st.markdown(f"#### {title}")
-        st.markdown(f'<div class="glass-card">{content}</div>', unsafe_allow_html=True)
+        
+        # Detect and style error/insufficient-data states
+        if content.startswith("*Error generating insight:") or "rate_limit_exceeded" in content or "Rate limit" in content:
+            st.warning(
+                "⚠️ This insight could not be generated due to API rate limits. "
+                "Re-run **Phase 4** after the rate limit resets (usually within 24 hours). "
+                "The system will automatically try smaller, faster models first."
+            )
+        elif content.strip() == "*Insufficient data for this theme in the current sample.*":
+            st.info("📊 Not enough tagged reviews for this theme yet. Run Phase 3 (tagging) to add more data.")
+        else:
+            st.markdown(f'<div class="glass-card">{content}</div>', unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()

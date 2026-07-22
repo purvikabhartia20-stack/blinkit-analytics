@@ -87,12 +87,12 @@ def main():
 <div class="flow-arrow">⬇</div>
 <div class="flow-step">
 <h4>Phase 3: AI Tagging (Groq API)</h4>
-<small>Each review sent to <b>Llama 3.3 70B</b>. Evaluated against 8 Research Questions.<br>Enforced output via Pydantic JSON Schema.</small>
+<small>Each review sent to <b>Llama 3.1 8B Instant</b> (primary) with automatic fallback to Llama 3.3 70B.<br>Evaluated against 8 Research Questions. Enforced output via JSON schema.</small>
 </div>
 <div class="flow-arrow">⬇</div>
 <div class="flow-step">
 <h4>Phase 4: Synthesis & Insights</h4>
-<small>Tagged subsets pushed back to <b>Llama 3.3 70B</b> to generate Executive Summaries.<br>Historical reports saved natively to markdown files.</small>
+<small>Tagged subsets pushed to <b>Llama 3.3 70B Versatile</b> (with 8B fallback) to generate Executive Summaries.<br>Historical reports saved natively to markdown files.</small>
 </div>
 <div class="flow-arrow">⬇</div>
 <div class="flow-step">

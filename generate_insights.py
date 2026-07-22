@@ -4,9 +4,17 @@ import json
 import os
 import yaml
 import time
+import re
 from datetime import datetime
 from groq import Groq
 from dotenv import load_dotenv
+
+# For insight synthesis we prefer the smartest model but fall back gracefully.
+INSIGHT_MODELS = [
+    "llama-3.3-70b-versatile",  # Best quality for executive summaries
+    "llama-3.1-8b-instant",      # Fast fallback
+    "llama3-8b-8192",             # Final fallback
+]
 
 RESEARCH_QUESTIONS = {
     "q1_repeat_buying": "Why do users repeatedly buy from the same categories?",
@@ -30,6 +38,40 @@ def setup_client():
     if not api_key:
         raise ValueError("GROQ_API_KEY not found in .env")
     return Groq(api_key=api_key)
+
+def _parse_wait_seconds(error_message: str) -> int:
+    """Extract the suggested wait time from a Groq rate-limit error message."""
+    minutes = re.search(r'(\d+)m', error_message)
+    seconds = re.search(r'(\d+(?:\.\d+))s', error_message)
+    wait = 0
+    if minutes:
+        wait += int(minutes.group(1)) * 60
+    if seconds:
+        wait += int(float(seconds.group(1)))
+    return wait if wait > 0 else 60
+
+
+def call_groq_with_fallback(client, prompt, max_tokens=800):
+    """Try each model in INSIGHT_MODELS in order, falling back on rate limits."""
+    for model in INSIGHT_MODELS:
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens
+            )
+            return response.choices[0].message.content, model
+        except Exception as e:
+            err_str = str(e)
+            if '429' in err_str or 'rate_limit' in err_str.lower():
+                wait = _parse_wait_seconds(err_str)
+                print(f"  Rate limit on {model}. Trying next model in chain...")
+                continue  # try next model
+            else:
+                raise  # unexpected error — re-raise
+    # All models exhausted
+    raise RuntimeError("All Groq models are currently rate-limited for insight synthesis.")
+
 
 def generate_insights():
     print("Starting Phase 4: Insight Generation")
@@ -105,19 +147,14 @@ Based ONLY on this data, write a concise, executive-level summary answering the 
 Use Markdown formatting. Use bullet points for key takeaways. Do not hallucinate external facts.
 """
             try:
-                # Use Groq Llama 3.3 for reasoning
-                response = client.chat.completions.create(
-                    model='llama-3.3-70b-versatile',
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=1000
-                )
-                summary = response.choices[0].message.content
-                print(f"  - Successfully generated insight for {theme} (Groq Llama 3.3)")
+                # Use model fallback chain for resilience against rate limits
+                summary, used_model = call_groq_with_fallback(client, prompt, max_tokens=800)
+                print(f"  - Successfully generated insight for {theme} (model: {used_model})")
             except Exception as e:
                 print(f"  - API Error for {theme}: {e}")
                 summary = f"*Error generating insight: {e}*"
             
-            time.sleep(2) # Respect 30 RPM limit
+            time.sleep(3)  # Respect RPM limits between synthesis calls
             
         cursor.execute("""
             INSERT INTO insights (theme, summary_markdown, backing_data_json)
